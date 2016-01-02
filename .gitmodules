@@ -1,0 +1,6 @@
+[submodule "public/vendors/chess.js"]
+	path = public/vendors/chess.js
+	url = https://github.com/jhlywa/chess.js.git
+[submodule "public/vendors/chessboardjs"]
+	path = public/vendors/chessboardjs
+	url = https://github.com/oakmac/chessboardjs.git

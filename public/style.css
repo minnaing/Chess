@@ -1,0 +1,21 @@
+input#fen { width: 720px; padding: 3px 5px; text-align: center; }
+#board { margin: 0 auto; }
+.b { font-weight: bold;   }
+.i { font-style : italic; }
+.fen { margin: 10px auto; font-size: 19px;  
+	padding: 10px;
+	line-height: 150%;
+	border-top: 1px solid #900;
+	border-bottom: 1px solid #900;	
+}
+footer {
+	border-top: 1px solid #900;
+	margin: 60px auto;
+}
+#history{
+	background: #eee;
+	min-height: 300px;
+	padding: 15px 15px;
+	//letter-spacing: 1px;
+	word-spacing: 10px;
+}

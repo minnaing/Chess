@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Enigma Chess Playground</title>
+	
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<script src="vendors/chess.js/chess.js"></script>
+	
+	<link rel="stylesheet" href="vendors/chessboardjs/www/css/chessboard.css" />
+	<script src="vendors/chessboardjs/www/js/chessboard.js"></script>
+	
+	<script src="main.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	
+</head>
+<body class="container">
+	<header>
+		<h1> Enigma Chess Playground 
+			<small>
+				<a class="btn btn-sm" id="setUpMode">[ New Game ]</a>
+				<a class="btn btn-sm" id="setUpStartingPosition">[ Load Starting Position ]</a>
+			</small>
+		</h1>
+	</header>
+
+	<div class="text-center fen">
+		<label>Current FEN : </label> 
+		<input id="fen" class="b i" type="text" value="">
+		<a class="btn btn-sm">[ Force Position ]</a>
+	</div>
+	
+	<div class"row">
+		<div class="container">
+		<div class="col-md-8 text-center">
+			<div>
+				<!-- a class="btn btn-sm" id="setUpMode">[ SetUp Mode ]</a -->
+			</div>
+			<div id="board" style="width: 400px"></div>
+			<div>Status: <span id="status"></span></div>
+		</div>
+		<div class="col-md-4">
+			<div class="pgn">
+				<h2>
+					History 
+					<small> 
+						<a class="btn btn-sm" id="undoMove">[ Undo Move ]</a>
+					</small>
+				</h2>
+				<div id="history"></div>
+				PGN <a class="btn btn-sm">[ Copy to Clipboard ]</a> 
+
+				<a class="btn btn-sm" id="downloadPGN">[ Download ]</a>
+				<a class="btn btn-sm">[ Edit PGN Headers ]</a>
+			</div>
+			
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<footer class="container">
+		Credit: <a href="https://github.com/jhlywa/chess.js">chess.js</a> , <a href="http://chessboardjs.com/">chessboard.js</a> , <a href="http://jquery.com/">jQuery</a> , <a href="http://getbootstrap.com">Bootstrap</a>
+	</footer>
+	<script>
+	$(document).ready(init); 
+	$("input[type='text']").click(function () {
+	   $(this).select();
+	});
+	</script>
+</body>
+</html>
