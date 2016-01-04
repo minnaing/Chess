@@ -19,3 +19,9 @@ footer {
 	//letter-spacing: 1px;
 	word-spacing: 10px;
 }
+.mv { 
+	display: inline-block;
+	width: 100px;
+}
+.black { color: #fff; background: #000; }
+.white { color: #000; background: #fff; }

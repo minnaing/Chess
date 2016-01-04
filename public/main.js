@@ -7,13 +7,23 @@ var getDate = function(date) {
 	return YYYY + '-' + MM + '-' + DD;
 }
 
+var loadFEN;
+
 var makeHistory = function(history){
 	var result = "";
 	var start = 1;
 	var i = 0;
 	while (i < history.length){
-		if (i%2 == 0){ result += "<br>" + start + ". "; start++; } 
-		result += "<a href='" + history[i].fen + "'>" + history[i].san + "</a> " ;
+		if (i%2 == 0){ 
+			// White
+			result += "<br>" + start + ". "; start++; 
+			result += '<button class="mv white" onclick="activateLoadFEN(\'' + history[i].fen + '\')">' + history[i].san + '</button>';
+		}  else {
+			result += '<button class="mv black" onclick="activateLoadFEN(\'' + history[i].fen + '\')">' + history[i].san + '</button>';
+		}
+		//result += '<a href="#" onclock="loadFEN(' + history[i].fen + ')">' + history[i].san + '</a> ' ;
+		//result += '<button onclick="loadFEN(\'' + history[i].fen + '\')">' + history[i].san + '</button>';
+		
 		i++;
 	}
 	return  result;
@@ -36,6 +46,7 @@ var init = function() {
 	fenEl = $('#fen'),
 	pgnEl = $('#pgn'),
 	history = $('#history');
+	ldFEN = $('.ldFEN');
 
 	game.header('Event', '');
 	game.header('Site', '');
@@ -109,7 +120,7 @@ var init = function() {
 		history.html(result);
 		statusEl.html(status);
 		fenEl.val(game.fen());
-		pgnEl.html(game.pgn({ max_width: 5, newline_char: '<br />' }));
+		//pgnEl.html(game.pgn({ max_width: 5, newline_char: '<br />' }));
 	};
 
 	var cfg = {
@@ -149,9 +160,24 @@ var init = function() {
 		this.setAttribute('download', 'game' + '.pgn'); // later we will change to WhiteVsBlack-Event.pgn
 	});
 
-	var loadFEN = function(fen){
+	$('button.loadFEN').on('click', function() {
+		console.log("Load FEN");
+		alert(this.value);	
+	});
+
+	loadFEN = function(fen){
+		console.log("Load FEN called.");
+		console.log(fen);
 		// Force Board to FEN position
 		board.position(fen, false);
-	}
+		fenEl.val(fen);
+	};
 
+	
 };
+
+function activateLoadFEN(fen){
+	loadFEN(fen);
+}
+
+
